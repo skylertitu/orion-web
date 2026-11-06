@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 import type { Project } from "@/lib/projects";
 import type { Dict } from "@/lib/messages/types";
 
@@ -182,9 +183,17 @@ export default function ProjectModal({
 
         {/* FOOTER DEL MODAL */}
         <div className="modal-footer">
-          <button type="button" className="btn btn-ghost" onClick={onClose}>
-            {dict.projects.closeModal}
-          </button>
+          <Link
+            href={`/es/proyectos/${project.id}`}
+            className="btn btn-secondary"
+            onClick={onClose}
+          >
+            <span>Ver caso de estudio</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </Link>
           <a
             href={project.demoUrl}
             target="_blank"

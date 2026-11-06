@@ -79,8 +79,8 @@ export const en: Dict = {
     subtitle: "Experience in production software teams building scalable digital platforms.",
     company: "Udreamms",
     role: "Full Stack Developer",
-    period: "~1.5 years (2024 – 2025)",
-    periodNote: "Approximate ~1.5 year tenure. Exact dates documented in formal resume.",
+    period: "2024 – 2025 (~1.5 years)",
+    periodNote: "Active software engineering role contributing to continuous production releases and agile team delivery.",
     location: "Remote / Ecuador",
     description:
       "Full-stack development of web applications, REST backend services, database migrations, and cross-functional agile delivery.",

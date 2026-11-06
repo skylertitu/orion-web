@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import Link from "next/link";
 import ProjectCard from "@/components/ProjectCard";
 import ProjectModal from "@/components/ProjectModal";
 import { projects, type Project } from "@/lib/projects";
@@ -30,7 +31,7 @@ const ROW_1: ShowcaseItem[] = [
   },
   {
     id: "r1-dashboards",
-    title: "Dashboards & AnalÃ­tica SaaS",
+    title: "Dashboards & Analítica SaaS",
     category: "SaaS & AI",
     badge: "Panel Operativo",
     image: "/images/services/service-dashboards.jpg",
@@ -50,7 +51,7 @@ const ROW_1: ShowcaseItem[] = [
   },
   {
     id: "r1-sitios",
-    title: "Landing Pages de Alta ConversiÃ³n",
+    title: "Landing Pages de Alta Conversión",
     category: "Sitios Web",
     badge: "Next.js 15",
     image: "/images/services/service-sitios-web.jpg",
@@ -61,8 +62,8 @@ const ROW_1: ShowcaseItem[] = [
   {
     id: "r1-huarmy",
     title: "Huarmy Coffee Web & Reservas",
-    category: "Web & GastronomÃ­a",
-    badge: "ProducciÃ³n",
+    category: "Web & Gastronomía",
+    badge: "Producción",
     image: "/images/huarmy-coffee.jpg",
     aspect: "wide",
     projectId: "huarmy-coffee",
@@ -103,8 +104,8 @@ const ROW_2: ShowcaseItem[] = [
   },
   {
     id: "r2-huarmy-exp",
-    title: "Plataforma GastronÃ³mica & Catering",
-    category: "Web & GastronomÃ­a",
+    title: "Plataforma Gastronómica & Catering",
+    category: "Web & Gastronomía",
     badge: "Core Web Vitals",
     image: "/images/huarmy-coffee.jpg",
     aspect: "wide",
@@ -149,7 +150,7 @@ export default function ProjectsSection({ dict }: { dict: Dict }) {
   };
 
   return (
-    <section id="proyectos" className="section-projects">
+    <section id="proyectos" className="section-projects" aria-label={dict.projects.title}>
       <div className="section-head reveal">
         <p className="eyebrow">{dict.projects.eyebrow}</p>
         <div>
@@ -158,19 +159,21 @@ export default function ProjectsSection({ dict }: { dict: Dict }) {
         </div>
 
         {/* View Mode & Motion Controls */}
-        <div className="showcase-controls-bar">
+        <div className="showcase-controls-bar" role="toolbar" aria-label="Controles de vista de proyectos">
           <button
             type="button"
             className={`showcase-toggle-pill ${viewMode === "dynamic" ? "is-active" : ""}`}
             onClick={() => setViewMode("dynamic")}
+            aria-pressed={viewMode === "dynamic"}
           >
-            <span className="showcase-live-dot" />
-            <span>GalerÃ­a DinÃ¡mica en Movimiento</span>
+            <span className="showcase-live-dot" aria-hidden="true" />
+            <span>Galería Dinámica en Movimiento</span>
           </button>
           <button
             type="button"
             className={`showcase-toggle-pill ${viewMode === "grid" ? "is-active" : ""}`}
             onClick={() => setViewMode("grid")}
+            aria-pressed={viewMode === "grid"}
           >
             <span>Ver Tarjetas Individuales</span>
           </button>
@@ -180,18 +183,18 @@ export default function ProjectsSection({ dict }: { dict: Dict }) {
               className="showcase-pause-btn"
               onClick={() => setIsPaused(!isPaused)}
               title={isPaused ? "Reanudar movimiento" : "Pausar movimiento"}
-              aria-label={isPaused ? "Reanudar movimiento" : "Pausar movimiento"}
+              aria-label={isPaused ? "Reanudar movimiento continuo" : "Pausar movimiento continuo"}
             >
               {isPaused ? (
                 <>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <polygon points="5 3 19 12 5 21 5 3" />
                   </svg>
                   <span>Reanudar</span>
                 </>
               ) : (
                 <>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <rect x="6" y="4" width="4" height="16" />
                     <rect x="14" y="4" width="4" height="16" />
                   </svg>
@@ -204,98 +207,129 @@ export default function ProjectsSection({ dict }: { dict: Dict }) {
       </div>
 
       {viewMode === "dynamic" ? (
-        /* â”€â”€â”€ DYNAMIC CONTINUOUS SHOWCASE (2 MOVING ROWS) â”€â”€â”€ */
+        /* DYNAMIC CONTINUOUS SHOWCASE (2 MOVING ROWS) */
         <div
           className="dynamic-marquee-container"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
+          tabIndex={0}
+          role="region"
+          aria-label="Galería interactiva de proyectos en producción"
         >
           {/* Row 1: Flowing Left */}
           <div className={`dynamic-marquee-row marquee-left ${isPaused ? "is-paused" : ""}`}>
-            {[...ROW_1, ...ROW_1].map((item, idx) => (
-              <article
-                key={`r1-${item.id}-${idx}`}
-                className={`showcase-card ${item.aspect === "wide" ? "aspect-wide" : "aspect-std"}`}
-                onClick={() => handleOpenProject(item.projectId)}
-              >
-                <div className="showcase-card-media">
-                  <img src={item.image} alt={item.title} loading="lazy" />
-                  <div className="showcase-card-overlay" />
-                  <span className="showcase-status-badge">
-                    <span className="live-status-dot" />
-                    {item.badge}
-                  </span>
-                </div>
-                <div className="showcase-card-meta">
-                  <span className="showcase-card-cat">{item.category}</span>
-                  <h4 className="showcase-card-title">{item.title}</h4>
-                  <div className="showcase-card-cta">
-                    <span>Ver detalles</span>
-                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <path d="M7 17L17 7" />
-                      <path d="M7 7h10v10" />
-                    </svg>
+            {[...ROW_1, ...ROW_1].map((item, idx) => {
+              const isDuplicate = idx >= ROW_1.length;
+              return (
+                <article
+                  key={`r1-${item.id}-${idx}`}
+                  className={`showcase-card ${item.aspect === "wide" ? "aspect-wide" : "aspect-std"}`}
+                  onClick={() => handleOpenProject(item.projectId)}
+                  aria-hidden={isDuplicate ? "true" : undefined}
+                  tabIndex={isDuplicate ? -1 : 0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      handleOpenProject(item.projectId);
+                    }
+                  }}
+                  role={isDuplicate ? undefined : "button"}
+                  aria-label={isDuplicate ? undefined : `${item.title} - ${item.category}. Ver detalles.`}
+                >
+                  <div className="showcase-card-media">
+                    <img src={item.image} alt="" aria-hidden="true" loading="lazy" />
+                    <div className="showcase-card-overlay" />
+                    <span className="showcase-status-badge">
+                      <span className="live-status-dot" aria-hidden="true" />
+                      {item.badge}
+                    </span>
                   </div>
-                </div>
-              </article>
-            ))}
+                  <div className="showcase-card-meta">
+                    <span className="showcase-card-cat">{item.category}</span>
+                    <h4 className="showcase-card-title">{item.title}</h4>
+                    <div className="showcase-card-cta">
+                      <span>Ver detalles</span>
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                        <path d="M7 17L17 7" />
+                        <path d="M7 7h10v10" />
+                      </svg>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
           </div>
 
           {/* Row 2: Flowing Right */}
           <div className={`dynamic-marquee-row marquee-right ${isPaused ? "is-paused" : ""}`}>
-            {[...ROW_2, ...ROW_2].map((item, idx) => (
-              <article
-                key={`r2-${item.id}-${idx}`}
-                className={`showcase-card ${item.aspect === "wide" ? "aspect-wide" : "aspect-std"}`}
-                onClick={() => handleOpenProject(item.projectId)}
-              >
-                <div className="showcase-card-media">
-                  <img src={item.image} alt={item.title} loading="lazy" />
-                  <div className="showcase-card-overlay" />
-                  <span className="showcase-status-badge">
-                    <span className="live-status-dot" />
-                    {item.badge}
-                  </span>
-                </div>
-                <div className="showcase-card-meta">
-                  <span className="showcase-card-cat">{item.category}</span>
-                  <h4 className="showcase-card-title">{item.title}</h4>
-                  <div className="showcase-card-cta">
-                    <span>Ver detalles</span>
-                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <path d="M7 17L17 7" />
-                      <path d="M7 7h10v10" />
-                    </svg>
+            {[...ROW_2, ...ROW_2].map((item, idx) => {
+              const isDuplicate = idx >= ROW_2.length;
+              return (
+                <article
+                  key={`r2-${item.id}-${idx}`}
+                  className={`showcase-card ${item.aspect === "wide" ? "aspect-wide" : "aspect-std"}`}
+                  onClick={() => handleOpenProject(item.projectId)}
+                  aria-hidden={isDuplicate ? "true" : undefined}
+                  tabIndex={isDuplicate ? -1 : 0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      handleOpenProject(item.projectId);
+                    }
+                  }}
+                  role={isDuplicate ? undefined : "button"}
+                  aria-label={isDuplicate ? undefined : `${item.title} - ${item.category}. Ver detalles.`}
+                >
+                  <div className="showcase-card-media">
+                    <img src={item.image} alt="" aria-hidden="true" loading="lazy" />
+                    <div className="showcase-card-overlay" />
+                    <span className="showcase-status-badge">
+                      <span className="live-status-dot" aria-hidden="true" />
+                      {item.badge}
+                    </span>
                   </div>
-                </div>
-              </article>
-            ))}
+                  <div className="showcase-card-meta">
+                    <span className="showcase-card-cat">{item.category}</span>
+                    <h4 className="showcase-card-title">{item.title}</h4>
+                    <div className="showcase-card-cta">
+                      <span>Ver detalles</span>
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                        <path d="M7 17L17 7" />
+                        <path d="M7 7h10v10" />
+                      </svg>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       ) : (
-        /* â”€â”€â”€ CLASSIC CAROUSEL VIEW â”€â”€â”€ */
+        /* CLASSIC CAROUSEL VIEW */
         <>
           <div className="gallery-header">
             <div className="gallery-nav">
-              <button type="button" className="carousel-arrow carousel-prev" onClick={prev} aria-label="Anterior">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <button type="button" className="carousel-arrow carousel-prev" onClick={prev} aria-label="Proyecto anterior">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                   <path d="M15 18l-6-6 6-6" />
                 </svg>
               </button>
-              <button type="button" className="carousel-arrow carousel-next" onClick={next} aria-label="Siguiente">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <button type="button" className="carousel-arrow carousel-next" onClick={next} aria-label="Siguiente proyecto">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                   <path d="M9 18l6-6-6-6" />
                 </svg>
               </button>
             </div>
-            <div className="gallery-dots">
-              {projects.map((_, i) => (
+            <div className="gallery-dots" role="tablist" aria-label="Navegación de proyectos">
+              {projects.map((p, i) => (
                 <button
-                  key={i}
+                  key={p.id}
                   type="button"
                   className={`gallery-dot ${i === index ? "active" : ""}`}
                   onClick={() => scrollTo(i)}
-                  aria-label={`Proyecto ${i + 1}`}
+                  aria-label={`Ver proyecto ${p.name}`}
+                  role="tab"
+                  aria-selected={i === index}
                 />
               ))}
             </div>

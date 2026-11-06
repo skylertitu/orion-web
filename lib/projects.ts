@@ -9,6 +9,9 @@ export interface Project {
   problem: string;
   objective: string;
   description: string;
+  architecture: string;
+  challenges: string;
+  solution: string;
   features: string[];
   technologies: string[];
   role: string;
@@ -27,11 +30,17 @@ export const projects: Project[] = [
     demoUrl: "https://luxor-pay-frontend.vercel.app",
     featured: true,
     problem:
-      "Los sistemas de pago tradicionales sufren de altas comisiones por transacción (2% - 4%), tiempos de acreditación lentos (24 a 72 horas) y fricción técnica para comercios que desean recibir activos digitales y stablecoins.",
+      "Los sistemas de pago tradicionales sufren de altas comisiones por transacción (2% al 4%), tiempos de acreditación lentos (24 a 72 horas) y fricción técnica para comercios que desean recibir activos digitales y stablecoins con liquidación inmediata.",
     objective:
       "Construir una interfaz de checkout Web3 moderna, intuitiva y ultrarrápida que permita a los usuarios conectar sus billeteras de Solana (Phantom, Solflare) y liquidar pagos en segundos con costos de red mínimos.",
     description:
       "Plataforma frontend de pagos construida con Next.js y TypeScript, integrada al ecosistema de Solana. Ofrece un flujo de cobro optimizado, detección automática de billeteras, validación de saldos y confirmación de transacciones en la red.",
+    architecture:
+      "Frontend desarrollado con Next.js 15 y TypeScript bajo arquitectura modular de componentes. Integración directa con Solana RPC mediante @solana/web3.js y Solana Wallet Adapter. Manejo reactivo de estado de transacción y persistencia en Firebase.",
+    challenges:
+      "Manejo de estados asíncronos y confirmación de firmas en la blockchain, detección y reconexión resiliente de billeteras ante desconexiones de red, y diseño de feedback en tiempo real sin bloquear la interfaz.",
+    solution:
+      "Implementación de listeners de estado de conexión con Wallet Adapter, transacciones serializadas y validadas con timeouts configurados y verificación de balances previa a la firma del smart contract.",
     features: [
       "Conexión nativa con billeteras SPL (Phantom, Solflare, etc.) mediante Wallet Adapter.",
       "Flujo de checkout seguro con validación de transacciones en la blockchain de Solana.",
@@ -40,7 +49,7 @@ export const projects: Project[] = [
       "Arquitectura de componentes modular y diseño adaptado a dispositivos móviles.",
     ],
     technologies: ["Next.js", "TypeScript", "Solana Web3.js", "Wallet Adapter", "Firebase", "CSS Modules"],
-    role: "Desarrollo de la interfaz de usuario en Next.js/TypeScript, integración del SDK de billeteras de Solana, diseño de los estados de checkout y manejo de respuestas en tiempo real.",
+    role: "Desarrollo integral de la interfaz de usuario en Next.js/TypeScript, integración del SDK de billeteras de Solana, diseño de los estados de checkout y manejo de respuestas en tiempo real.",
     impact:
       "Liquidación instantánea de transacciones con confirmación en menos de 1 segundo sobre Solana, reduciendo fricción de adopción para usuarios Web3.",
     accentColor: "#00d4ff",
@@ -60,6 +69,12 @@ export const projects: Project[] = [
       "Desarrollar una plataforma centralizada que unifique canales de mensajería, flujos de trabajo, automatizaciones con agentes de IA y métricas financieras en un único panel de comando intuitivo.",
     description:
       "Infraestructura SaaS diseñada para sincronizar múltiples puntos de contacto corporativos. Integra APIs de mensajería, automatizaciones inteligentes para tareas repetitivas y soporte para activos digitales y pasarelas de cobro.",
+    architecture:
+      "Arquitectura Full Stack basada en Next.js, Node.js y TypeScript. Consumo de endpoints RESTful y procesamiento de eventos vía Webhooks. Persistencia y sincronización en Firebase y PostgreSQL.",
+    challenges:
+      "Sincronización de eventos concurrentes provenientes de múltiples canales de mensajería, normalización de payloads heterogéneos de APIs externas y renderizado de métricas en tiempo real con latencia mínima.",
+    solution:
+      "Pipeline desacoplado para ingesta de webhooks con validación de firmas, cacheo intermedio de respuestas y diseño de vistas de dashboard modulares con carga perezosa de analíticas.",
     features: [
       "Dashboard unificado con monitoreo de canales y actividad en tiempo real.",
       "Integración de múltiples servicios externos (canales de mensajería, correo y pagos).",
@@ -88,6 +103,12 @@ export const projects: Project[] = [
       "Crear una experiencia web atractiva y de carga ultra veloz que exhiba la identidad culinaria, la carta gastronómica, los servicios para empresas y facilite la captación directa de reservas y cotizaciones.",
     description:
       "Sitio web moderno desarrollado con enfoque Mobile-First, priorizando la velocidad de carga (Core Web Vitals), fotografía gastronómica optimizada, menú interactivo y formulario de contacto segmentado para eventos.",
+    architecture:
+      "Aplicación Next.js con Server-Side Rendering y Static Generation para máxima velocidad y SEO técnico. CSS moderno modular sin sobrecarga de librerías externas para tiempos de carga < 1s.",
+    challenges:
+      "Optimización de imágenes gastronómicas de alta resolución para evitar penalizaciones en Core Web Vitals, estructuración de esquemas de datos Schema.org para SEO local en Quito y diseño de reservas interactivo.",
+    solution:
+      "Pipeline de optimización de imágenes en formatos WebP/AVIF con responsive srcset, implementación de microdatos JSON-LD para negocios locales y validación cliente/servidor de formularios.",
     features: [
       "Menú digital interactivo categorizado por secciones gastronómicas.",
       "Módulo específico para cotización de servicios de catering corporativo y eventos.",
@@ -104,4 +125,3 @@ export const projects: Project[] = [
     image: "/images/huarmy-coffee.jpg",
   },
 ];
-

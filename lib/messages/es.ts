@@ -106,8 +106,8 @@ export const es: Dict = {
     subtitle: "Experiencia en equipos de ingeniería construyendo plataformas y productos digitales.",
     company: "Udreamms",
     role: "Full Stack Developer",
-    period: "~1 año y medio (2024 – 2025)",
-    periodNote: "Periodo aproximado de año y medio. Fechas exactas disponibles en CV formal.",
+    period: "2024 – 2025 (~1 año y medio)",
+    periodNote: "Desarrollo activo en equipo de ingeniería con entregas continuas y metodologías ágiles.",
     location: "Remoto / Ecuador",
     description:
       "Desarrollo de aplicaciones y plataformas web, diseño de endpoints backend, persistencia de datos y colaboración multidisciplinaria en entregas continuas.",

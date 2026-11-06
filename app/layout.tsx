@@ -124,6 +124,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang={locale} data-theme="dark" suppressHydrationWarning className={`${spaceGrotesk.variable} ${dmSans.variable}`}>
       <head>
+        <meta charSet="utf-8" />
         <link rel="icon" href="/orion-logo.png" type="image/png" />
         <script
           dangerouslySetInnerHTML={{
