@@ -61,7 +61,7 @@ export const projects: Project[] = [
     name: "Its Roosevelt",
     tagline: "Centro de comando unificado e infraestructura de superinteligencia operativa y multicanal.",
     category: "SaaS & AI",
-    demoUrl: "https://itsroosevelt.com",
+    demoUrl: "https://www.itsroosevelt.com/",
     featured: true,
     problem:
       "Las empresas y profesionales gestionan su operación a través de herramientas fragmentadas (WhatsApp, Instagram, Telegram, Gmail, Stripe, GitHub), provocando pérdida de contexto, respuestas tardías y desconexión entre finanzas y comunicación.",
@@ -89,6 +89,40 @@ export const projects: Project[] = [
     accentColor: "#8b5cf6",
     mockupBg: "linear-gradient(135deg, #180b2b 0%, #2e1065 100%)",
     image: "/images/its-roosevelt.jpg",
+  },
+  {
+    id: "royalty",
+    name: "Royalty",
+    tagline: "Infraestructura soberana de banca digital, custodia de activos y tesorería descentralizada.",
+    category: "Web3 & Fintech",
+    demoUrl: "https://land-royalty-sigma.vercel.app/en",
+    featured: true,
+    problem:
+      "Las instituciones y empresas modernas requieren infraestructura bancaria digital soberana con custodia de activos de grado institucional, gestión automatizada de tesorería y cuentas corporativas autónomas con cumplimiento normativo.",
+    objective:
+      "Desarrollar una plataforma institucional de finanzas digitales con interfaz minimalista de alto impacto, arquitectura multilingüe (i18n), módulos de bóvedas de tesorería y analíticas en tiempo real.",
+    description:
+      "Plataforma Web3 institucional construida con Next.js y TypeScript. Integra sistemas de custodia descentralizada, bóvedas de alto volumen, liquidación automatizada y diseño interactivo con shaders y visualizaciones de datos avanzadas.",
+    architecture:
+      "Arquitectura moderna en Next.js con soporte i18n nativo, componentes modulares tipados en TypeScript, optimización de renderizado para visualizaciones matemáticas y microservicios de liquidación financiera.",
+    challenges:
+      "Renderizado fluido de visualizaciones de partículas 3D en la web manteniendo tiempos de carga ultrarrápidos, estructuración segura de flujos de custodia institucional y diseño responsivo sin degradación de framerate.",
+    solution:
+      "Optimización de gráficos basados en WebGL/Canvas con lazy loading, desacoplamiento de componentes de presentación y consumo estructurado de contratos inteligentes y APIs financieras.",
+    features: [
+      "Infraestructura de banca digital soberana de última generación.",
+      "Custodia de activos de grado institucional y bóvedas de alta tesorería.",
+      "Cuentas corporativas autónomas descentralizadas con conciliación automática.",
+      "Interfaz inmersiva con soporte multilingüe completo (ES/EN) y modo oscuro de alta fidelidad.",
+      "Rendimiento optimizado para carga instantánea y máxima seguridad en transacciones.",
+    ],
+    technologies: ["Next.js", "TypeScript", "WebGL / Canvas", "Tailwind CSS", "Web3 APIs", "Vercel"],
+    role: "Desarrollo frontend integral de la plataforma institucional, maquetación responsiva de alta fidelidad, internacionalización (i18n) e integración de componentes interactivos.",
+    impact:
+      "Presentación institucional de alto impacto para inversores y clientes corporativos con experiencia de navegación fluida y tiempos de carga inferiores a 1.2s.",
+    accentColor: "#3b82f6",
+    mockupBg: "linear-gradient(135deg, #050b1a 0%, #0d1e3d 100%)",
+    image: "/images/royalty.jpg",
   },
   {
     id: "huarmy-coffee",
