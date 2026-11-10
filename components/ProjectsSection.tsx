@@ -57,7 +57,7 @@ const ROW_1: ShowcaseItem[] = [
     image: "/images/services/service-sitios-web.jpg",
     aspect: "standard",
     projectId: "huarmy-coffee",
-    demoUrl: "https://huarmy-coffee-delta.vercel.app",
+    demoUrl: "https://fase2.grupozonaequinoccial.com/",
   },
   {
     id: "r1-huarmy",
@@ -67,7 +67,7 @@ const ROW_1: ShowcaseItem[] = [
     image: "/images/huarmy-coffee.jpg",
     aspect: "wide",
     projectId: "huarmy-coffee",
-    demoUrl: "https://huarmy-coffee-delta.vercel.app",
+    demoUrl: "https://fase2.grupozonaequinoccial.com/",
   },
 ];
 
@@ -110,7 +110,7 @@ const ROW_2: ShowcaseItem[] = [
     image: "/images/huarmy-coffee.jpg",
     aspect: "wide",
     projectId: "huarmy-coffee",
-    demoUrl: "https://huarmy-coffee-delta.vercel.app",
+    demoUrl: "https://fase2.grupozonaequinoccial.com/",
   },
   {
     id: "r2-apps",

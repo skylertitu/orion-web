@@ -95,7 +95,7 @@ export const projects: Project[] = [
     name: "Huarmy Coffee",
     tagline: "Plataforma web corporativa y sistema de reservas para gastronomía tradicional y catering.",
     category: "Web & Gastronomía",
-    demoUrl: "https://huarmy-coffee-delta.vercel.app",
+    demoUrl: "https://fase2.grupozonaequinoccial.com/",
     featured: true,
     problem:
       "Un negocio gastronómico y de servicios de catering en Quito requería una presencia digital profesional para atraer tanto a comensales particulares como a empresas interesadas en catering corporativo, sin depender exclusivamente de redes sociales.",
