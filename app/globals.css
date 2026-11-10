@@ -2577,6 +2577,82 @@ section {
   margin-top: 3px;
 }
 
+/* Experience Projects Grid & Chips */
+.exp-projects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.exp-project-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  transition: all 0.25s ease;
+  color: var(--ink);
+}
+
+[data-theme="light"] .exp-project-chip {
+  background: rgba(15, 23, 42, 0.03);
+  border-color: rgba(15, 23, 42, 0.1);
+}
+
+.exp-project-chip:hover {
+  background: rgba(2, 132, 199, 0.12);
+  border-color: rgba(2, 132, 199, 0.4);
+  transform: translateY(-1px);
+}
+
+.exp-project-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+  flex-shrink: 0;
+}
+
+.exp-project-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+[data-theme="light"] .exp-project-name {
+  color: var(--ink);
+}
+
+.exp-project-tag {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ink-faint);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+
+[data-theme="light"] .exp-project-tag {
+  background: rgba(15, 23, 42, 0.06);
+  color: var(--ink-secondary);
+}
+
+.exp-project-arrow {
+  color: var(--accent-cyan);
+  opacity: 0.7;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.exp-project-chip:hover .exp-project-arrow {
+  opacity: 1;
+  transform: translate(2px, -2px);
+}
+
 /*  Stack Section  */
 .section-stack {
   position: relative;

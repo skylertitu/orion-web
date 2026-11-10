@@ -73,14 +73,24 @@ export type Dict = {
     eyebrow: string;
     title: string;
     subtitle: string;
-    company: string;
-    role: string;
-    period: string;
-    periodNote: string;
-    location: string;
-    description: string;
-    responsibilities: string[];
-    technologies: string[];
+    projectsLabel: string;
+    responsibilitiesLabel: string;
+    technologiesLabel: string;
+    entries: {
+      company: string;
+      role: string;
+      period: string;
+      location: string;
+      type: string;
+      description: string;
+      responsibilities: string[];
+      technologies: string[];
+      projects?: {
+        name: string;
+        url: string;
+        tag: string;
+      }[];
+    }[];
   };
   stack: {
     eyebrow: string;
